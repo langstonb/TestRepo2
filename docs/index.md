@@ -15,5 +15,5 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
 		DevOpsPackageIntro.md
-		AutomationAndBuildServer.md
+		Intro/AutomationAndBuildServer.md
         ...       # Other markdown pages, images and other files.

@@ -2,3 +2,15 @@ site_name: DevOps Package
 
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    
+nav:
+  - Home: 'index.md'
+  - 'Introduction':
+    - 'Devops Package Intro': 'DevOpsPackageIntro.md'
+  - Automation and Build Server:
+    - 'First section': 'AutomationAndBuildServer.md'
+
+    
