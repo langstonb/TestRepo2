@@ -11,7 +11,7 @@ nav:
   - 'Introduction':
     - 'Devops Package Intro': 'DevOpsPackageIntro.md'
   - Automation and Build Server:
-    - 'First section': 'AutomationAndBuildServer.md'
+    - 'First section': 'AutomationBuildServer.md'
 
 header_pages:
  - DevOpsPackageIntro.md
