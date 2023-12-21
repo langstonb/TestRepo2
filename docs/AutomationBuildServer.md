@@ -1,10 +1,3 @@
-layout: page
-title: Automation and Build Server
-permalink: /AutomationAndBuildServer
-
-
-B&R Internal
-
 # Automation & Build Server
 
 DevOps Package
@@ -13,7 +6,7 @@ DevOps Package
 
 DevOps Package
 
-To significantly  __reduce the barriers to entry __ of DevOps strategies into the day\-to\-day workflow of B&R applications engineers in order to  __increase the efficiency\, quality\, and maintainability __ of AS project development
+To significantly  __reduce the barriers to entry __ of DevOps strategies into the day\-to\-day workflow of Automation Studio project development\, in order to  __increase the efficiency\, quality\, and maintainability __ of the resulting applications
 
 
 
@@ -21,7 +14,7 @@ To significantly  __reduce the barriers to entry __ of DevOps strategies into th
 
 Automation & Build Server
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal0.png)
+![](img%5CAutomation%20and%20Build%20Server0.png)
 
 * What is it?
 * Why is it important?
@@ -32,6 +25,7 @@ Automation & Build Server
   * Getting Started
   * Customizing the Jenkinsfile
   * Integration with Bitbucket
+* Automated Deployment
 
 
 
@@ -108,7 +102,7 @@ The only template file provided for this topic is a template Jenkinsfile\.
 
 Further explanation on how to edit this Jenkinsfile according to your situation is provided [later on](slide27.xml)\.
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal1.png)
+![](img%5CAutomation%20and%20Build%20Server1.png)
 
 
 
@@ -124,15 +118,15 @@ Further explanation on how to edit this Jenkinsfile according to your situation 
 
 # Jenkins
 
-Proposed Tool for B&R Internal
+Proposed Tool
 
 Jenkins is a very popular\, open\-source tool which provides deployment pipeline functionality
 
 It can be used to automate all sorts of tasks related to building\, testing\, delivering and deploying software
 
-This is what we will use for our build servers in B&R NA
+This is the tool that B&R uses for our automation server\, so the rest of this PPT will be focused on Jenkins\. You are free to investigate other options as desired\.
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal2.png)
+![](img%5CAutomation%20and%20Build%20Server2.png)
 
 
 
@@ -140,26 +134,14 @@ This is what we will use for our build servers in B&R NA
 
 Used by All NA Regions
 
-  * Jenkins is installed in a VM on the Atlanta server
-  * All North America regions and territories will use this build server
-    * If you work out of a regional office and want to install Jenkins locally instead\, contact Brittany and Wes for the necessary steps
-  * This Jenkins server is accessible via the following link:
-    * [http://brusatlavbuild1\.br\-automation\.com:8080/](http://brusatlavbuild1.br-automation.com:8080/)
-    * Login credentials are the same as your Windows login
-  * Docker containers are installed on the VM for AS4\.10– 4\.12\, to enable simultaneous AS builds \(e\.g\. if two build chains happen to run at the same time\)
-    * If you are using <AS4\.10\, please let us know and we will install another docker container accordingly
-    * Builds will queue if they are triggered at the same time
+  * B&R North America has a build/automation server running out of our ATL office that you can utilize as long as B&R engineers are involved in your project and have credentials to your source control repository
+    * This is convenient because it means you don’t have to build up your own server right away
+    * To get started with this option\, contact your B&R NA representative\. Note that this option is not available outside of North America
+  * Once B&R is no longer actively involved in the project\, though\, you will need to create your own build/automation server setup
+    * B&R does not manage customer automation servers long\-term
+  * Alternatively\, you can create your own automation server setup from the get\-go
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal3.png)
-
-
-
-Used by All NA Regions
-
-  * Although the Jenkins server is installed on the internal B&R Atlanta server\, it can still be used with customer projects that we are involved in\. As long as someone on our team has credentials to access the customer repository\, then our internal build server can interact with it\.
-  * Note\, however\, that we are not set up to manage the customer’s build/automation server after the project has been completed\. Therefore\, at that time they either need to set up their own Jenkins server\, or they lose the Jenkins server functionality\. The customer\-facing version of this DevOps package will provide the steps for customers to set up their own server\.
-
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal4.png)
+![](img%5CAutomation%20and%20Build%20Server3.png)
 
 
 
@@ -218,18 +200,39 @@ Machine Deployment
 
 # B&R-Jenkins Helper Library
 
-ATL Jenkins Server
+Ready\-made Scripts
 
 Readymade Groovy Scripts
 
-* The ATL Jenkins server uses a helper library that has a lot of useful functions for interacting with AS projects
+* B&R North America has written a helper library that includes a lot of useful functions for interacting with AS projects
 * The library contains Groovy scripts\, which are wrappers around Python scripts and general commands
 * You don’t need to edit this library at all\, but you will be using it in your Jenkinsfile
+  * The functions are described on the next slides as an FYI
 * Public link to the library on GitHub: [https://github\.com/br\-automation\-com/BnR\-Jenkins\-Helper\-Library](https://github.com/br-automation-com/BnR-Jenkins-Helper-Library)
   * The Groovy scripts are located within the “vars” folder on the repo
   * The Python scripts that the Groovy scripts utilize are located within the “resources\\scripts” folder on the repo
 * These scripts have been tested in AS4\.7 and above\. Prior AS versions may work\, but they are currently untested\.
-* The available functions are described on the next slides and are provided here as an FYI\. To skip forward to the steps for editing your Jenkinsfile\, click [here](slide26.xml)\.
+
+
+
+Add to Jenkins Server
+
+* To utilize this helper library on your Jenkins server\, do the following:
+* Go to “Manage Jenkins”
+* Select “System”
+* Scroll down to the “Global Pipeline Libraries” section\. Click “Add”\. Then:
+  * Fill out a Name for the library \(whatever you prefer\)
+  * In the “Default Version” field\, type “main”
+  * Check the boxes for “Load implicitly”\, “Allow default version to be overridden”\, and “Include @Library changes in job recent changes”
+  * Set the Retrieval method to “Modern SCM”
+  * Set “Source Code Management” to “GitHub”
+  * Fill out the credentials accordingly \(or add new credentials if needed\)
+  * In the “Repository HTTPS URL” field\, paste this URL: [https://github\.com/br\-automation\-com/BnR\-Jenkins\-Helper\-Library\.git](https://github.com/br-automation-com/BnR-Jenkins-Helper-Library.git)
+  * In the “Library Path” field\, paste the following: \./
+
+![](img%5CAutomation%20and%20Build%20Server4.png)
+
+![](img%5CAutomation%20and%20Build%20Server5.png)
 
 
 
@@ -297,39 +300,358 @@ B&R\-Jenkins Helper Library
 | Function | Description | Arguments |
 | :-: | :-: | :-: |
 | UploadToGitHub | Uploads build artifacts to a GitHub repository | version – version number of the artifact<br />organization – repo organization name<br />name – repo name<br />file – filename of the artifact to upload |
-| UploadToConfluence | Uploads build artifacts to a Confluence page | projectId – 4-character project identifier<br />pageName – name of the page in Confluence to upload to<br />file – filename of the artifact to upload<br />token – user credentials token for access rights |
 | SendNotifications | Sends an email to team members | buildStatus – the status/result of the most recent build of the pipeline<br />recipients – list of email addresses to send the email to |
 
 
 
 # Getting Started
 
+Note: If you are utilizing the B&R Jenkins server initially\, then you can skip the steps in this slide
+
+# System Requirements
+
+Build and Automation Server
+
+* If you are setting up your own build/automation server\, note the following system requirements:
+* Hardware requirements
+  * 12 GB of RAM
+  * 10 GB of drive space \(>50 GB recommended\)
+* Software requirements
+  * Windows 10
+  * Automation Studio 4\.7 or above \(version must match the project\)
+    * Plus all required upgrades for the project \(manually installed on server\)
+    * Note: supporting scripts have been tested in AS4\.7 and above\. Prior versions may work\, but have not been checked
+  * Python ≥ 3\.9
+    * Required for automated build scripts
+  * Jenkins
+  * Java Development Kit
+
+
+
+Note: If you are utilizing the B&R Jenkins server initially\, then you can skip the steps in this slide
+
+# Downloads and Installation
+
+Build and Automation Server
+
+* [Jenkins Download](https://www.jenkins.io/download/)
+* [Java Development Kit Download](https://adoptium.net/temurin/releases/?version=11)
+* [Python Download](https://www.python.org/downloads/)
+* Installation instructions for Jenkins and the JDK are located [here](https://www.jenkins.io/doc/book/installing/windows/)\.
+  * Please review the video for full instructions on how to install the JDK\, Jenkins\, and make assorted configuration changes after install\.
+* We recommend installing Jenkins on a server or dedicated PC
+* We recommend installing Jenkins with the “recommended plugins” option
+  * And manually add the “Office 365 Connector” plugin
+  * Configure Extended E\-mail Notification plugin
+* Python requirements
+  * pip install requests junitparser GitPython
+
+![](img%5CAutomation%20and%20Build%20Server6.png)
+
+
+
+# Creating Jenkins Agent Docker Container
+
+# Jenkins Agent
+
+Build and Automation Server
+
+![](img%5CAutomation%20and%20Build%20Server7.png)
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+
+
+Build and Automation Server
+
+![](img%5CAutomation%20and%20Build%20Server8.png)
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+
+
+Build and Automation Server
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+![](img%5CAutomation%20and%20Build%20Server9.png)
+
+
+
+Build and Automation Server
+
+![](img%5CAutomation%20and%20Build%20Server10.png)
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+Define the name of your node and select “Permanent Agent”
+
+Click “Create”
+
+
+
+Build and Automation Server
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+Define the name of your node and select “Permanent Agent”
+
+Click “Create”
+
+Define “Remote root directory”
+
+![](img%5CAutomation%20and%20Build%20Server11.png)
+
+
+
+Build and Automation Server
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+Define the name of your node and select “Permanent Agent”
+
+Click “Create”
+
+Define “Remote root directory”
+
+Define labels based on Automation Studio Version
+
+![](img%5CAutomation%20and%20Build%20Server12.png)
+
+
+
+Build and Automation Server
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+Define the name of your node and select “Permanent Agent”
+
+Click “Create”
+
+Define “Remote root directory”
+
+Define labels based on Automation Studio Version
+
+Change “Usage” to “Only build jobs with label expressions matching this mode”
+
+![](img%5CAutomation%20and%20Build%20Server13.png)
+
+
+
+Build and Automation Server
+
+![](img%5CAutomation%20and%20Build%20Server14.png)
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+Define the name of your node and select “Permanent Agent”
+
+Click “Create”
+
+Define “Remote root directory”
+
+Define labels based on Automation Studio Version
+
+Change “Usage” to “Only build jobs with label expressions matching this mode”
+
+Change “Launch method” to “Launch agent by connecting it to the controller”
+
+Check “Use WebSocket”
+
+
+
+Build and Automation Server
+
+![](img%5CAutomation%20and%20Build%20Server15.png)
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+Define the name of your node and select “Permanent Agent”
+
+Click “Create”
+
+Define “Remote root directory”
+
+Define labels based on Automation Studio Version
+
+Change “Usage” to “Only build jobs with label expressions matching this mode”
+
+Change “Launch method” to “Launch agent by connecting it to the controller”
+
+Check “Use WebSocket”
+
+Click “Save”
+
+
+
+Build and Automation Server
+
+Create a new node to run the Jenkins agent
+
+Goto “Manage Jenkins”
+
+Select “Nodes” under the System Configuration
+
+Click the “New Node” button
+
+Define the name of your node and select “Permanent Agent”
+
+Click “Create”
+
+Define “Remote root directory”
+
+Define labels based on Automation Studio Version
+
+Change “Usage” to “Only build jobs with label expressions matching this mode”
+
+Change “Launch method” to “Launch agent by connecting it to the controller”
+
+Check “Use WebSocket”
+
+Click “Save”
+
+Copy the secret provided
+
+![](img%5CAutomation%20and%20Build%20Server16.png)
+
+
+
+# Docker Build
+
+Build and Automation Server
+
+![](img%5CAutomation%20and%20Build%20Server17.png)
+
+Create a Docker container for the agent
+
+Open the Dockerfile in a text editor
+
+
+
+Build and Automation Server
+
+Create a Docker container for the agent
+
+Open the Dockerfile in a text editor
+
+Adjust the JENKINS\_URL for your configuration
+
+![](img%5CAutomation%20and%20Build%20Server18.png)
+
+
+
+Build and Automation Server
+
+Create a Docker container for the agent
+
+Open the Dockerfile in a text editor
+
+Adjust the JENKINS\_URL for your configuration
+
+Add the Jenkins secret from the node creation to JENKINS\_SECRET
+
+Adjust the JENKINS\_AGENT\_NAME with the name of the node
+
+![](img%5CAutomation%20and%20Build%20Server19.png)
+
+
+
+Build and Automation Server
+
+Create a Docker container for the agent
+
+Open the Dockerfile in a text editor
+
+Adjust the JENKINS\_URL for your configuration
+
+Add the Jenkins secret from the node creation to JENKINS\_SECRET
+
+Adjust the JENKINS\_AGENT\_NAME with the name of the node
+
+Create the Docker image
+
+![](img%5CAutomation%20and%20Build%20Server20.png)
+
+
+
+# Create Jenkins project
+
+Note: If you are utilizing the B&R Jenkins server initially\, then you can skip the steps in this slide
+
 # Create a Multibranch Pipeline
 
-Submit Request
+Jenkins
 
-When you are ready to create a pipeline\, send an email to Brittany and Wes\. We will then coordinate a meeting to create your pipeline together and go over a few additional details
+* Open the Jenkins server web browser
+* From the Dashboard\, click “New Item” in the top left and select “Multibranch Pipeline”
+* Fill out the configuration for this new pipeline\. Required changes:
+  * Add a Branch Source
+    * Fill out the corresponding fields\, which vary depending on the source type
+  * Set the Build Configuration Mode to “by Jenkinsfile” and update the script path to where you want this file to live in your repo
+    * This file is where you will define your pipeline
+  * Add the “Clean before checkout” option to the repository
+* Paste the provided template “Jenkinsfile” to the location you specified in step 3b
+* Open the “Jenkinsfile” in a text editor
 
-Note that all AS projects that you intend to run through a pipeline must be configured for ARsim in order for the full pipeline to be able to run \(particularly\, the automated tests\)
-
-Once the pipeline is in place\, open the template Jenkinsfile in a text editor to begin making your customizations
+![](img%5CAutomation%20and%20Build%20Server21.png)
 
 
 
 ---
 
-Notes for Brittany/Wes: 
-Remember to ask them their AS version. If less than 4.7, we need to test the scripts. If 4.7 or 4.8, we need to install on the build server (it only has 4.9-4.12 right now).
-PIP installation settings – these ok?
-
-What if you want to run your pipeline for multiple configurations in the project – how would we do this? 
-You would just copy/paste the lines within each Step. See “Stages” section. Help them through this in the first meeting. 
-
-
+Getting Started section
 
 # Overview of the Jenkinsfile Template
 
-DevOps Package
+Getting Started
 
 The provided Jenkinsfile template accomplishes the following tasks:
 
@@ -339,7 +661,7 @@ Runs the unit tests
 
 Creates an ARsim structure and PIP
 
-Uploads the ARsim structure and PIP to GitHub or Confluence\, and sends them to an MS Teams channel via a chat message
+Uploads the ARsim structure and PIP to GitHub\, and sends them to an MS Teams channel via a chat message
 
 Sends an email with the results of the build
 
@@ -417,9 +739,6 @@ Starting at the top of the Jenkinsfile\, we will begin by adjusting the global v
 | UNIT_TEST_CONFIG_NAME | Name of the unit test configuration in the AS project |
 | REPO_NAME | Name of the GitHub repository. Only required if you plan to upload files to GitHub.  |
 | REPO_ORGANIZATION | Name of the GitHub organization. Only required if you plan to upload files to GitHub.  |
-| CONFLUENCE_CRED_ID | ID of the Personal Access Token for Confluence. Only required if you plan to upload files to Confluence.<br />For more details, refer to the “Post” section.   |
-| CONFLUENCE_PROJECT_ID | Name of the confluence page. Only required if you plan to upload files to Confluence. |
-| CONFLUENCE_PAGE_NAME | Name of the confluence page. Only required if you plan to upload files to Confluence. |
 | EMAIL_LIST | List of email addresses that you want to send the results to, each separated by a semicolon |
 
 
@@ -435,10 +754,12 @@ Starting at the top of the Jenkinsfile\, we will begin by adjusting the global v
 
 Customizing the Jenkinsfile
 
-* Edit the “agent” line to identify the docker container your pipeline will run in\. This simply depends on the AS version of your project
-  * Example: AS\_412
+* Edit the “agent” line accordingly\.
+  * If you are utilizing the B&R Jenkins server to start\, then identify the docker container your pipeline will run in\. This simply depends on the AS version of your project
+    * Example: AS\_412
+  * If you have built your own Jenkins server\, then specify the [agent](https://www.jenkins.io/doc/book/using/using-agents/) accordingly\.
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal5.png)
+![](img%5CAutomation%20and%20Build%20Server22.png)
 
 
 
@@ -473,12 +794,12 @@ The following table describes each environment variable\. Adjust the values acco
 
 Customizing the Jenkinsfile
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal6.png)
+![](img%5CAutomation%20and%20Build%20Server23.png)
 
-* The “options” section sets up a webhook to a Teams channel so that you can automatically send information to that channel\. This includes:
+* The “options” section sets up a webhook to an MS Teams channel so that you can automatically send information to that channel\. This includes:
   * Updates on when the pipeline has started / stopped
   * Whether the pipeline succeeded
-  * The output files of the pipeline \(By default in our template\, the output files are the zipped up ARsim structure and PIP\)
+  * The output files of the pipeline \(by default in our template\, the output files are the zipped up ARsim structure and PIP\)
 * To establish this connection\, you need to obtain your Teams channel webhook URL \(see next slides\) and paste it in the value for the TEAMS\_CHANNEL\_URL variable
 
 
@@ -500,7 +821,7 @@ Click the “…” button
 
 Click “Connectors”
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal7.png)
+![](img%5CAutomation%20and%20Build%20Server24.png)
 
 
 
@@ -521,7 +842,7 @@ Click “Connectors”
 
 Click “Configure” for “Incoming Webhook”
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal8.png)
+![](img%5CAutomation%20and%20Build%20Server25.png)
 
 
 
@@ -534,7 +855,7 @@ Click “Configure” for “Incoming Webhook”
 
 Microsoft Teams Connection
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal9.png)
+![](img%5CAutomation%20and%20Build%20Server26.png)
 
 Navigate to the channel in the Team that you want to establish the connection to
 
@@ -557,7 +878,7 @@ Give your webhook a name and click “Create”
 
 Microsoft Teams Connection
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal10.png)
+![](img%5CAutomation%20and%20Build%20Server27.png)
 
 Navigate to the channel in the Team that you want to establish the connection to
 
@@ -621,7 +942,7 @@ Customizing the Jenkinsfile
 * This information will be used later to create a version number
 * No changes necessary
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal11.png)
+![](img%5CAutomation%20and%20Build%20Server28.png)
 
 
 
@@ -645,7 +966,7 @@ This stage builds the AS project
 
 A value of \-1 for “max\_warnings” means you can have infinite warnings\. If you optionally specify a positive value here\, the stage will fail if the number of build warnings exceeds this value\.
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal12.png)
+![](img%5CAutomation%20and%20Build%20Server29.png)
 
 
 
@@ -675,7 +996,7 @@ This stage runs the automated unit tests
 
 If the pipeline gets stuck on a unit test for longer than 15 minutes\, the tests will fail\. Optionally adjust this timeout value as desired\.
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal13.png)
+![](img%5CAutomation%20and%20Build%20Server30.png)
 
 
 
@@ -703,7 +1024,7 @@ By default\, both stages create the ARsim structure and Project Installation Pac
 
 If you want to perform another action in either stage\, add it accordingly
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal14.png)
+![](img%5CAutomation%20and%20Build%20Server31.png)
 
 
 
@@ -746,7 +1067,7 @@ Customizing the Jenkinsfile
 Customizing the Jenkinsfile
 
   * The “Always” post script converts the B&R Unit test results into a data format that Jenkins can understand what passed/failed
-  * Archives the ARsim structure and PIP so that they can be used in subsequent pipelines or uploaded to GitHub/Confluence/Teams
+  * Archives the ARsim structure and PIP so that they can be used in subsequent pipelines or uploaded to GitHub/Teams
   * Sends an email with the build status to the EMAIL\_LIST recipients
   * The PIP that gets automatically generated uses the following installation settings:
     * Consistent installation
@@ -772,9 +1093,9 @@ Customizing the Jenkinsfile
 
 All Tests Passed
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal15.png)
+![](img%5CAutomation%20and%20Build%20Server32.png)
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal16.png)
+![](img%5CAutomation%20and%20Build%20Server33.png)
 
 
 
@@ -793,9 +1114,9 @@ All Tests Passed
 
 Some Tests Failed
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal17.png)
+![](img%5CAutomation%20and%20Build%20Server34.png)
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal18.png)
+![](img%5CAutomation%20and%20Build%20Server35.png)
 
 
 
@@ -815,7 +1136,7 @@ Some Tests Failed
 Customizing the Jenkinsfile
 
   * Both the “Success” and “Unstable” post scripts do the following:
-    * Upload the artifacts to your destination of choice \(GitHub\, Confluence\, or both\)
+    * Upload the artifacts to GitHub
     * Send a message to the Teams channel with the status and artifact download links
   * The only differences between these post scripts are:
     * The color scheme \(green for success\, yellow for unstable\)
@@ -838,9 +1159,9 @@ Customizing the Jenkinsfile
 
 Success vs Unstable
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal19.png)
+![](img%5CAutomation%20and%20Build%20Server36.png)
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal20.png)
+![](img%5CAutomation%20and%20Build%20Server37.png)
 
 
 
@@ -860,101 +1181,10 @@ Success vs Unstable
 Customizing the Jenkinsfile
 
   * Required steps:
-  * Comment/uncomment the upload lines according to your selected destination \(GitHub/Confluence\)
+  * Comment/uncomment the upload lines depending on whether you want to upload the artifacts to GitHub
+  * If you do choose to upload\, make sure you have edited the REPO\_NAME and REPO\_ORGANIZATION variables at the top of the Jenkinsfile accordingly
 
-    * If GitHub:
-  * Edit the REPO\_NAME and REPO\_ORGANIZATION variables at the top of the Jenkinsfile accordingly
-
-  * If Confluence:
-* Create a Personal Access Token \(PAT\) in Confluence\. Steps are provided [here](https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html) in section “Creating PATs in the application”
-* Add the PAT to the Jenkins project \(detailed steps on subsequent slides\)
-* Edit the CONFLUENCE\_CRED\_ID variable value at the top of the Jenkinsfile to equal the ID of your PAT from step 2\.
-
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal21.png)
-
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal22.png)
-
-
-
-  * Variables
-  * Agent
-  * Environment
-  * Options
-  * Stages
-  * __Post__
-
-  * Always
-  * __Success__
-  * __Unstable__
-
-# Add PAT to Jenkins Project
-
-For Uploading Files to Confluence
-
-  * To add a Personal Access Token \(PAT\) from Confluence to a Jenkins project:
-* The output of the PAT in Confluence is a long text string\. In the Jenkins project\, go to Configure\.
-
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal23.png)
-
-
-
-  * Variables
-  * Agent
-  * Environment
-  * Options
-  * Stages
-  * __Post__
-
-  * Always
-  * __Success__
-  * __Unstable__
-
-For Uploading Files to Confluence
-
-  * To add a Personal Access Token \(PAT\) from Confluence to a Jenkins project:
-* Scroll down to the “Properties” section at the bottom\. Beneath the “Registry Credentials” dropdown\, click the “Add” button\.
-
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal24.png)
-
-
-
-  * Variables
-  * Agent
-  * Environment
-  * Options
-  * Stages
-  * __Post__
-
-  * Always
-  * __Success__
-  * __Unstable__
-
-For Uploading Files to Confluence
-
-  * To add a Personal Access Token \(PAT\) from Confluence to a Jenkins project:
-* Select your Jenkins project name from the dropdown\.
-
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal25.png)
-
-
-
-  * Variables
-  * Agent
-  * Environment
-  * Options
-  * Stages
-  * __Post__
-
-  * Always
-  * __Success__
-  * __Unstable__
-
-For Uploading Files to Confluence
-
-  * To add a Personal Access Token \(PAT\) from Confluence to a Jenkins project:
-* Change the “Kind” to “secret text”\. Paste your long PAT string in the “Secret” field\. Give the credentials a meaningful ID\. Remember the ID \(this is what you need to specify in the Jenkinsfile\)\. Click “Add” at the bottom of the window to add your Confluence PAT to your Jenkins project\.
-
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal26.png)
+![](img%5CAutomation%20and%20Build%20Server38.png)
 
 
 
@@ -964,7 +1194,7 @@ For Uploading Files to Confluence
 
 How\-to
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal27.png)
+![](img%5CAutomation%20and%20Build%20Server39.png)
 
 From the Bitbucket project\, click on your user icon and select “Manage account”
 
@@ -972,13 +1202,13 @@ Select “HTTP access token” in the menu on the left
 
 Click “Create token”
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal28.png)
+![](img%5CAutomation%20and%20Build%20Server40.png)
 
 
 
 How\-to
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal29.png)
+![](img%5CAutomation%20and%20Build%20Server41.png)
 
 Add a token name
 
@@ -992,7 +1222,7 @@ How\-to
 
 Make sure to copy the generated token as you will not be able view this again\.
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal30.png)
+![](img%5CAutomation%20and%20Build%20Server42.png)
 
 
 
@@ -1016,15 +1246,15 @@ Add source
 
 Select Bitbucket
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal31.png)
+![](img%5CAutomation%20and%20Build%20Server43.png)
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal32.png)
+![](img%5CAutomation%20and%20Build%20Server44.png)
 
 
 
 How\-to
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal33.png)
+![](img%5CAutomation%20and%20Build%20Server45.png)
 
 Change “Kind” to “Username with password”
 
@@ -1050,9 +1280,9 @@ Then Add “Advanced clone behaviors”
 
 And ensure that “Fetch tags” is checked
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal34.png)
+![](img%5CAutomation%20and%20Build%20Server46.png)
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal35.png)
+![](img%5CAutomation%20and%20Build%20Server47.png)
 
 
 
@@ -1060,21 +1290,46 @@ How\-to
 
 After saving\, the repositories will be scanned
 
-![](img%5CAutomation%20and%20Build%20Server%20-%20Internal36.png)
+![](img%5CAutomation%20and%20Build%20Server48.png)
 
 
 
-# Measurables
+# Automated Deployment
 
-# Automation and Build Server
+DevOps Package
 
-Measurables
+* Recommendations on automated deployment will be added in a future revision of the B&R DevOps package
+* For an immediate solution\, consider [Shuv](https://loupe.team/story/introducing-shuv/)\*
+  * Shuv handles many aspects of the CI/CD process for you\, in addition to automated deployment
+  * Further details on next slide
 
-| Measurable | Purely B&R | Mix, B&R Primary | Mix, Customer Primary |
-| :-: | :-: | :-: | :-: |
-| A Jenkins pipeline is in place, which at the very least runs your unit tests | Required | Required | Maybe |
+![](img%5CAutomation%20and%20Build%20Server49.png)
+
+\* Note that there is a cost to use Shuv \(it is not free\)
 
 
 
-Materials prepared by Brittany Langston & Wesley Buchanan
+![](img%5CAutomation%20and%20Build%20Server50.png)
+
+![](img%5CAutomation%20and%20Build%20Server51.png)
+
+Tag event \+ checkout
+
+Manages CI/CD pipelines for your Automation Studio projects and B&R PLCs
+
+Automated pipelines trigger on Git events
+
+Builds simulator and physical PIPs
+
+Runs unit tests and integration tests against the simulator
+
+Integrates with Git to keep track of code versions
+
+Delivers OTA software updates to PLCs that are connected to Shuv via MQTTS
+
+
+
+We reserve the right to change the content of this presentation without prior notice\. The information contained herein is believed to be accurate as of the date of publication\, however\, B&R makes no warranty\, expressed or implied\, with regards to the products or the documentation contained within this document\. B&R shall not be liable in the event if incidental or consequential damages in connection with or arising from the furnishing\, performance or use of these products\. The software names\, hardware names and trademarks used in this document are registered by the respective companies\.
+
+Copyright © B&R – Subject to change without notice
 

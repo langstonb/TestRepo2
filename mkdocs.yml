@@ -9,11 +9,11 @@ theme:
 nav:
   - Introduction: 'index.md'
   - Project Management:
-    - 'Section 1': 'DevOpsPackageIntro.md'
+    - 'Section 1': 'ProjectManagement.md'
   - Version Control:
-    - 'Section 1': 'DevOpsPackageIntro.md'
+    - 'Section 1': 'VersionControl.md'
   - Testing:
-    - 'Section 1': 'DevOpsPackageIntro.md'
+    - 'Section 1': 'Testing.md'
   - Automation and Build Server:
     - 'First section': 'AutomationBuildServer.md'
 

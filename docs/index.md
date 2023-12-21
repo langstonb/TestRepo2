@@ -1,24 +1,12 @@
 # DevOps Package
 
-Intro
+Overview
 
-# Contents
+# Current Problems
 
-DevOps Intro
+Software Development
 
-![](img%5CDevOps%20Package%20Intro0.png)
-
-Definition of DevOps
-
-Contents of this Package
-
-# What is DevOps?
-
-# Common Problems & Concerns
-
-AS Project Development
-
-__Have you or your customers made comments like this?__
+__Have you or your engineers made comments like this?__
 
 “It’s difficult to keep track of what still needs to be done in this project”
 
@@ -34,27 +22,27 @@ __Have you or your customers made comments like this?__
 
 “I don’t have a good systematic process for testing my code before deployment”
 
-# Solution: DevOps
+# Addressing the Problems
 
-AS Project Development
+Customer Applications
 
 One way to address these kinds of problems is a set of practices called  __[DevOps](https://www.atlassian.com/devops/what-is-devops)__
 
-![](img%5CDevOps%20Package%20Intro1.png)
+![](img%5CDevOps%20Package%20Overview0.png)
 
 # What is DevOps?
 
 A Brief Definition
 
-![](img%5CDevOps%20Package%20Intro2.png)
+![](img%5CDevOps%20Package%20Overview1.png)
 
 DevOps is the union of  _dev_ elopment and IT  _op_ erations to continually\, reliably\, and quickly provide product to customers
 
 A Brief Definition
 
-![](img%5CDevOps%20Package%20Intro3.png)
+![](img%5CDevOps%20Package%20Overview2.png)
 
-![](img%5CDevOps%20Package%20Intro4.png)
+![](img%5CDevOps%20Package%20Overview3.png)
 
 __Product__  = AS project
 
@@ -90,33 +78,55 @@ Optimizing team and project architecture
 
 Automated testing and reporting
 
-![](img%5CDevOps%20Package%20Intro5.png)
+![](img%5CDevOps%20Package%20Overview4.png)
 
-# Mission Statement
+# Current Situation
 
-DevOps Package
+DevOps Adoption
 
-Implementing DevOps involves workflow changes\, as well as a notable culture shift\. Therefore\, the mission and purpose of this DevOps package is:
+![](img%5CDevOps%20Package%20Overview5.png)
 
-To significantly  __reduce the barriers to entry __ of DevOps strategies into the day\-to\-day workflow of B&R applications engineers in order to  __increase the efficiency\, quality\, and maintainability __ of AS project development
+Many people agree that the DevOps mindset is a favorable way to work\, but integrating new practices  __requires bandwidth that most of us don’t have__
 
-# B&R Americas Standard
+As a result\, inefficient workflows remain in place
 
-DevOps Package
+# B&R DevOps Package
 
-The information in these materials is the new standard for AS project development in B&R Americas
+Mission Statement
 
-There will be exceptions to the rule on a case\-by\-case basis\, but this is now the defined starting point
+To address this\, B&R has put together a DevOps package\. The mission and purpose of this package is:
 
-![](img%5CDevOps%20Package%20Intro6.png)
+To significantly  __reduce the barriers to entry __ of DevOps strategies into the day\-to\-day workflow of Automation Studio project development\, in order to  __increase the efficiency\, quality\, __  __and maintainability __ of the resulting applications
 
-# DevOps Package Contents
+![](img%5CDevOps%20Package%20Overview6.png)
 
-# 
+# Value Proposition
 
-To Do: Add a workflow from beginning to end\, which touches on all 4 parts of the contents
+DevOps at B&R
 
-# DevOps Package Contents
+__DevOps adds significant __  __value__  __ to you in the following ways: __
+
+![](img%5CDevOps%20Package%20Overview7.png)
+
+Frequent deployments
+
+Increased productivity
+
+Spend less time fire\-fighting
+
+… and so forth
+
+Faster time to market
+
+Respond rapidly to required changes
+
+Higher code quality
+
+Quickly deliver bugfixes
+
+__B&R has invested the time to research DevOps practices and is ready to incorporate them into the development of your machine software\.  __
+
+# B&R DevOps Package Contents
 
 What’s Included?
 
@@ -130,39 +140,35 @@ Automation & Build Server
 
 Testing
 
-There is also an overview PPT for the sales team to use to present the topic to customers\. This PPT includes a script in the slide notes\.
+Everything within the DevOps package is  _free_  to use\!
 
-![](img%5CDevOps%20Package%20Intro7.png)
+![](img%5CDevOps%20Package%20Overview8.png)
 
 What’s Included?
 
 For each of these subjects\, the package contains  _reference material_  and  _template files_ \.
 
+The reference material explains the conceptual information behind the subject\, including what it is\, why it’s important\, how you can implement it\, and other various tips and tricks\.
+
 Wherever applicable\, we provide template files to expedite your implementation of that part of the DevOps process
 
-The reference material explains the conceptual information behind the subject\, including what it is\, why it’s important\, how you should implement it\, and other various tips and tricks
+![](img%5CDevOps%20Package%20Overview9.png)
 
-![](img%5CDevOps%20Package%20Intro8.png)
-
-![](img%5CDevOps%20Package%20Intro9.png)
+![](img%5CDevOps%20Package%20Overview10.png)
 
 Reference Material
 
-Continuous Improvement over Time
+Throughout the package we identify the tools and resources that we use at B&R\, but of course you are free to utilize whatever tools you prefer to accomplish each aspect of the DevOps process\.
 
-These materials will be added to and amended over time
-
-If you have any ideas or content that would be valuable to add\, please inform Wes/Brittany
-
-![](img%5CDevOps%20Package%20Intro10.png)
-
-# Get Started!
+# Let’s Get Started!
 
 DevOps at B&R
 
 To get started\, open up the PPT for the topic of interest\. The PPT will guide you through the topic and explain all template files as they come up\.
 
-If you have any questions\, please reach out to Brittany Langston or Wesley Buchanan\.
+![](img%5CDevOps%20Package%20Overview11.png)
 
-![](img%5CDevOps%20Package%20Intro11.png)
+We reserve the right to change the content of this presentation without prior notice\. The information contained herein is believed to be accurate as of the date of publication\, however\, B&R makes no warranty\, expressed or implied\, with regards to the products or the documentation contained within this document\. B&R shall not be liable in the event if incidental or consequential damages in connection with or arising from the furnishing\, performance or use of these products\. The software names\, hardware names and trademarks used in this document are registered by the respective companies\.
+
+Copyright © B&R – Subject to change without notice
 
