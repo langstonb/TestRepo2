@@ -4,7 +4,6 @@ theme:
   name: material
   features:
     - navigation.instant
-    - navigation.instant.prefetch
     
 nav:
   - Introduction: 'index.md'
