@@ -385,7 +385,7 @@
 <p>To significantly  __reduce the barriers to entry __ of DevOps strategies into the day-to-day workflow of B&amp;R applications engineers in order to  __increase the efficiency\, quality\, and maintainability __ of AS project development</p>
 <h1 id="contents">Contents</h1>
 <p>Automation &amp; Build Server</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal0.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal0.png" /></p>
 <ul>
 <li>What is it?</li>
 <li>Why is it important?</li>
@@ -452,7 +452,7 @@
 <p>Automation &amp; Build Server</p>
 <p>The only template file provided for this topic is a template Jenkinsfile.</p>
 <p>Further explanation on how to edit this Jenkinsfile according to your situation is provided <a href="slide27.xml">later on</a>.</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal1.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal1.png" /></p>
 <h1 id="how-to-implement">How to Implement</h1>
 <ul>
 <li>How to use Jenkins</li>
@@ -467,7 +467,7 @@
 <p>Jenkins is a very popular\, open-source tool which provides deployment pipeline functionality</p>
 <p>It can be used to automate all sorts of tasks related to building\, testing\, delivering and deploying software</p>
 <p>This is what we will use for our build servers in B&amp;R NA</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal2.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal2.png" /></p>
 <h1 id="atl-jenkins-server">ATL Jenkins Server</h1>
 <p>Used by All NA Regions</p>
 <ul>
@@ -487,13 +487,13 @@
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal3.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal3.png" /></p>
 <p>Used by All NA Regions</p>
 <ul>
 <li>Although the Jenkins server is installed on the internal B&amp;R Atlanta server\, it can still be used with customer projects that we are involved in. As long as someone on our team has credentials to access the customer repository\, then our internal build server can interact with it.</li>
 <li>Note\, however\, that we are not set up to manage the customer’s build/automation server after the project has been completed. Therefore\, at that time they either need to set up their own Jenkins server\, or they lose the Jenkins server functionality. The customer-facing version of this DevOps package will provide the steps for customers to set up their own server.</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal4.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal4.png" /></p>
 <h1 id="multibranch-pipeline">Multibranch Pipeline</h1>
 <p>Jenkins Project Type</p>
 <ul>
@@ -823,7 +823,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 <li>Edit the “agent” line to identify the docker container your pipeline will run in. This simply depends on the AS version of your project</li>
 <li>Example: AS_412</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal5.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal5.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -863,7 +863,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 </ul>
 <h1 id="options">Options</h1>
 <p>Customizing the Jenkinsfile</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal6.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal6.png" /></p>
 <ul>
 <li>The “options” section sets up a webhook to a Teams channel so that you can automatically send information to that channel. This includes:</li>
 <li>Updates on when the pipeline has started / stopped</li>
@@ -886,7 +886,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 <p>Navigate to the channel in the Team that you want to establish the connection to</p>
 <p>Click the “…” button</p>
 <p>Click “Connectors”</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal7.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal7.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -900,7 +900,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 <p>Click the “…” button</p>
 <p>Click “Connectors”</p>
 <p>Click “Configure” for “Incoming Webhook”</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal8.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal8.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -910,7 +910,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 <li>Post</li>
 </ul>
 <p>Microsoft Teams Connection</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal9.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal9.png" /></p>
 <p>Navigate to the channel in the Team that you want to establish the connection to</p>
 <p>Click the “…” button</p>
 <p>Click “Connectors”</p>
@@ -925,7 +925,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 <li>Post</li>
 </ul>
 <p>Microsoft Teams Connection</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal10.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal10.png" /></p>
 <p>Navigate to the channel in the Team that you want to establish the connection to</p>
 <p>Click the “…” button</p>
 <p>Click “Connectors”</p>
@@ -986,7 +986,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 <li>This information will be used later to create a version number</li>
 <li>No changes necessary</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal11.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal11.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1007,7 +1007,7 @@ You would just copy/paste the lines within each Step. See “Stages” section. 
 <p>Customizing the Jenkinsfile</p>
 <p>This stage builds the AS project</p>
 <p>A value of -1 for “max_warnings” means you can have infinite warnings. If you optionally specify a positive value here\, the stage will fail if the number of build warnings exceeds this value.</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal12.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal12.png" /></p>
 <hr />
 <p>What if you want to run your pipeline for multiple configurations in the project – how would we do this? 
 You would just copy/paste the lines within each Step. So here, copy/paste the BuildASProject line for the additional config. Set this up with them during the initial meeting</p>
@@ -1031,7 +1031,7 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <p>Customizing the Jenkinsfile</p>
 <p>This stage runs the automated unit tests</p>
 <p>If the pipeline gets stuck on a unit test for longer than 15 minutes\, the tests will fail. Optionally adjust this timeout value as desired.</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal13.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal13.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1054,7 +1054,7 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <p>Therefore\, you can trigger different actions depending on what branch you pushed to</p>
 <p>By default\, both stages create the ARsim structure and Project Installation Package</p>
 <p>If you want to perform another action in either stage\, add it accordingly</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal14.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal14.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1130,8 +1130,8 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 </ul>
 <h1 id="example-of-a-successful-build-email-notification">Example of a Successful Build Email Notification</h1>
 <p>All Tests Passed</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal15.png" /></p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal16.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal15.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal16.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1149,8 +1149,8 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 </ul>
 <h1 id="example-of-an-unstable-build-email-notification">Example of an Unstable Build Email Notification</h1>
 <p>Some Tests Failed</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal17.png" /></p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal18.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal17.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal18.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1199,8 +1199,8 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 </ul>
 <h1 id="example-of-ms-teams-messages">Example of MS Teams Messages</h1>
 <p>Success vs Unstable</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal19.png" /></p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal20.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal19.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal20.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1234,8 +1234,8 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <li>Add the PAT to the Jenkins project (detailed steps on subsequent slides)</li>
 <li>Edit the CONFLUENCE_CRED_ID variable value at the top of the Jenkinsfile to equal the ID of your PAT from step 2.</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal21.png" /></p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal22.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal21.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal22.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1257,7 +1257,7 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
 <li>The output of the PAT in Confluence is a long text string. In the Jenkins project\, go to Configure.</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal23.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal23.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1278,7 +1278,7 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
 <li>Scroll down to the “Properties” section at the bottom. Beneath the “Registry Credentials” dropdown\, click the “Add” button.</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal24.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal24.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1299,7 +1299,7 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
 <li>Select your Jenkins project name from the dropdown.</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal25.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal25.png" /></p>
 <ul>
 <li>Variables</li>
 <li>Agent</li>
@@ -1320,23 +1320,23 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
 <li>Change the “Kind” to “secret text”. Paste your long PAT string in the “Secret” field. Give the credentials a meaningful ID. Remember the ID (this is what you need to specify in the Jenkinsfile). Click “Add” at the bottom of the window to add your Confluence PAT to your Jenkins project.</li>
 </ul>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal26.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal26.png" /></p>
 <h1 id="integration-with-bitbucket">Integration with Bitbucket</h1>
 <h1 id="integrate-jenkins-with-bitbucket">Integrate Jenkins with Bitbucket</h1>
 <p>How-to</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal27.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal27.png" /></p>
 <p>From the Bitbucket project\, click on your user icon and select “Manage account”</p>
 <p>Select “HTTP access token” in the menu on the left</p>
 <p>Click “Create token”</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal28.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal28.png" /></p>
 <p>How-to</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal29.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal29.png" /></p>
 <p>Add a token name</p>
 <p>Set the Permissions to “Repository read”</p>
 <p>Click “Create”</p>
 <p>How-to</p>
 <p>Make sure to copy the generated token as you will not be able view this again.</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal30.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal30.png" /></p>
 <p>How-to</p>
 <p>Create new project in Jenkins</p>
 <p>Enter name of project</p>
@@ -1346,10 +1346,10 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <p>Select project name</p>
 <p>Add source</p>
 <p>Select Bitbucket</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal31.png" /></p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal32.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal31.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal32.png" /></p>
 <p>How-to</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal33.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal33.png" /></p>
 <p>Change “Kind” to “Username with password”</p>
 <p>Paste HTTP access token created from Bitbucket</p>
 <p>Give unique ID</p>
@@ -1360,11 +1360,11 @@ You would just copy/paste the lines within each Step. So here, copy/paste the Bu
 <p>How-to</p>
 <p>Then Add “Advanced clone behaviors”</p>
 <p>And ensure that “Fetch tags” is checked</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal34.png" /></p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal35.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal34.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal35.png" /></p>
 <p>How-to</p>
 <p>After saving\, the repositories will be scanned</p>
-<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal36.png" /></p>
+<p><img alt="" src="img%5CAutomation%20and%20Build%20Server%20-%20Internal36.png" /></p>
 <h1 id="measurables">Measurables</h1>
 <h1 id="automation-and-build-server">Automation and Build Server</h1>
 <p>Measurables</p>
