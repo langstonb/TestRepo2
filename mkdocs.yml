@@ -7,9 +7,13 @@ theme:
     - navigation.instant.prefetch
     
 nav:
-  - Home: 'index.md'
-  - 'Introduction':
-    - 'Devops Package Intro': 'DevOpsPackageIntro.md'
+  - Introduction: 'index.md'
+  - Project Management:
+    - 'Section 1': 'DevOpsPackageIntro.md'
+  - Version Control:
+    - 'Section 1': 'DevOpsPackageIntro.md'
+  - Testing:
+    - 'Section 1': 'DevOpsPackageIntro.md'
   - Automation and Build Server:
     - 'First section': 'AutomationBuildServer.md'
 
