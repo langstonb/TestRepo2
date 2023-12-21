@@ -1,0 +1,1446 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../DevOpsPackageIntro/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Automation and Build Server - DevOps Package</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#automation-build-server" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DevOps Package" class="md-header__button md-logo" aria-label="DevOps Package" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DevOps Package
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Automation and Build Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DevOps Package" class="md-nav__button md-logo" aria-label="DevOps Package" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DevOps Package
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DevOpsPackageIntro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Devops Package Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Automation and Build Server
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Automation and Build Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    First section
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p>B&amp;R Internal</p>
+<h1 id="automation-build-server">Automation &amp; Build Server</h1>
+<p>DevOps Package</p>
+<h1 id="mission-statement">Mission Statement</h1>
+<p>DevOps Package</p>
+<p>To significantly  __reduce the barriers to entry __ of DevOps strategies into the day-to-day workflow of B&amp;R applications engineers in order to  __increase the efficiency\, quality\, and maintainability __ of AS project development</p>
+<h1 id="contents">Contents</h1>
+<p>Automation &amp; Build Server</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal0.png" /></p>
+<ul>
+<li>What is it?</li>
+<li>Why is it important?</li>
+<li>Included Template Files</li>
+<li>How to Implement</li>
+<li>How to use Jenkins</li>
+<li>B&amp;R-Jenkins Helper Library</li>
+<li>Getting Started</li>
+<li>Customizing the Jenkinsfile</li>
+<li>Integration with Bitbucket</li>
+</ul>
+<h1 id="what-is-it">What is it?</h1>
+<p>Automation &amp; Build Server</p>
+<h1 id="automation-build-server_1">Automation &amp; Build Server</h1>
+<p>Definition</p>
+<p>Automation Server</p>
+<p>A build server is an isolated production environment where software projects are compiled and built.</p>
+<p>The code is pulled directly from a source control repository prior to build.</p>
+<ul>
+<li>An automation server is used to automate tasks and processes.</li>
+<li>The automation server monitors the source control repo. As soon as a code change is checked into the repo (or at a specific time interval)\, the automation server will automatically trigger the following:</li>
+<li>Check out the latest version of the code from the source control repo</li>
+<li>Compile the code on the build server</li>
+<li>Initiate the automated unit/integration tests</li>
+<li>Communicate the results (pass/fail) to the interested parties via email\, Teams\, Confluence\, etc</li>
+<li>Initiate automated deployment</li>
+<li>… and so on</li>
+<li>The automation server is essentially the “puppet master” of the automations within the DevOps process</li>
+</ul>
+<h1 id="why-is-it-important">Why is it important?</h1>
+<p>Build &amp; Automation Server</p>
+<h1 id="benefits">Benefits</h1>
+<p>Build &amp; Automation Server</p>
+<ul>
+<li>By building the project and running tests in an isolated production environment\, you will be testing against a collection of known dependencies. In other words\, you avoid the “it fails for you\, but it works on my PC” situation</li>
+<li>By automating the deployment pipeline with a build server\, developers quickly receive feedback about whether their changes introduced a problem into the system</li>
+<li>The sooner a problem is identified\, the easier/cheaper it is to fix</li>
+<li>The build server provides a clear paper trail for what change introduced a problem</li>
+<li>When used in combination with proper version control practices\, the latest version of code will always be in a releasable state</li>
+<li>Since the releases are automated and not manual\, release steps are consistent and no steps are forgotten</li>
+</ul>
+<h1 id="target-applications">Target Applications</h1>
+<p>Build &amp; Automation Server</p>
+<p>x</p>
+<ul>
+<li>__Any and all __ applications can benefit from the incorporation of a build and automation server</li>
+<li>Any steps that are triggered automatically are inherently more efficient and reliable than executing the step manually</li>
+<li>These are general software development tools that will give us a strategic advantage over our competitors</li>
+<li>A build and automation server is particularly useful if:</li>
+<li>You are managing multiple projects<ul>
+<li>The automation server will update all interested parties via email / Teams</li>
+<li>The build server will automatically generate the PIP in a consistent environment\, which makes machine updates easier because only the changes will get transferred to the target</li>
+</ul>
+</li>
+<li>The application has unit tests<ul>
+<li>The automation server will run them automatically and more frequently</li>
+<li>The build/automation server will allow for a clean slate testing environment</li>
+<li>The build server triggers all tests\, so you have confidence that your code changes don’t impact other aspects of the code</li>
+</ul>
+</li>
+</ul>
+<h1 id="included-template-files">Included Template Files</h1>
+<p>DevOps Package</p>
+<p>Automation &amp; Build Server</p>
+<p>The only template file provided for this topic is a template Jenkinsfile.</p>
+<p>Further explanation on how to edit this Jenkinsfile according to your situation is provided <a href="slide27.xml">later on</a>.</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal1.png" /></p>
+<h1 id="how-to-implement">How to Implement</h1>
+<ul>
+<li>How to use Jenkins</li>
+<li>B&amp;R-Jenkins Helper Library</li>
+<li>Getting Started</li>
+<li>Customizing the Jenkinsfile</li>
+<li>Integration with Bitbucket</li>
+</ul>
+<h1 id="how-to-use-jenkins">How to use Jenkins</h1>
+<h1 id="jenkins">Jenkins</h1>
+<p>Proposed Tool for B&amp;R Internal</p>
+<p>Jenkins is a very popular\, open-source tool which provides deployment pipeline functionality</p>
+<p>It can be used to automate all sorts of tasks related to building\, testing\, delivering and deploying software</p>
+<p>This is what we will use for our build servers in B&amp;R NA</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal2.png" /></p>
+<h1 id="atl-jenkins-server">ATL Jenkins Server</h1>
+<p>Used by All NA Regions</p>
+<ul>
+<li>Jenkins is installed in a VM on the Atlanta server</li>
+<li>All North America regions and territories will use this build server<ul>
+<li>If you work out of a regional office and want to install Jenkins locally instead\, contact Brittany and Wes for the necessary steps</li>
+</ul>
+</li>
+<li>This Jenkins server is accessible via the following link:<ul>
+<li><a href="http://brusatlavbuild1.br-automation.com:8080/">http://brusatlavbuild1.br-automation.com:8080/</a></li>
+<li>Login credentials are the same as your Windows login</li>
+</ul>
+</li>
+<li>Docker containers are installed on the VM for AS4.10– 4.12\, to enable simultaneous AS builds (e.g. if two build chains happen to run at the same time)<ul>
+<li>If you are using &lt;AS4.10\, please let us know and we will install another docker container accordingly</li>
+<li>Builds will queue if they are triggered at the same time</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal3.png" /></p>
+<p>Used by All NA Regions</p>
+<ul>
+<li>Although the Jenkins server is installed on the internal B&amp;R Atlanta server\, it can still be used with customer projects that we are involved in. As long as someone on our team has credentials to access the customer repository\, then our internal build server can interact with it.</li>
+<li>Note\, however\, that we are not set up to manage the customer’s build/automation server after the project has been completed. Therefore\, at that time they either need to set up their own Jenkins server\, or they lose the Jenkins server functionality. The customer-facing version of this DevOps package will provide the steps for customers to set up their own server.</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal4.png" /></p>
+<h1 id="multibranch-pipeline">Multibranch Pipeline</h1>
+<p>Jenkins Project Type</p>
+<ul>
+<li>There are a few different project types within Jenkins\, but the one we recommend is the  <strong>Multibranch Pipeline</strong> .</li>
+<li>A pipeline is a workflow defined in text-based code within a text file called “Jenkinsfile”</li>
+<li>A Multibranch Pipeline project automatically creates sub-projects for every branch in the source code repository</li>
+<li>If a new branch is created and pushed to the repository\, then a new sub-project in the multibranch pipeline is created and runs for that branch</li>
+<li>The Jenkinsfile is committed to the source control repository\, so the pipeline itself is protected by version control</li>
+<li>This also means that the developers can freely/directly add steps to the pipeline</li>
+</ul>
+<h1 id="use-multiple-multibranch-pipelines">Use Multiple Multibranch Pipelines</h1>
+<p>Recommendation</p>
+<ul>
+<li>You can configure multiple Jenkins pipelines to run in series</li>
+<li>Once the first pipeline completes successfully\, the next one automatically starts running\, and so on.</li>
+<li>Alternatively\, since the pipelines are separated\, you can run the integration tests (which typically take longer) at a lower frequency than the unit tests. The unit tests could run every time code is committed and pushed\, but the integration test run only every 4 hours\, for example.</li>
+</ul>
+<p>Build\, Unit Tests</p>
+<p>Integration Testing</p>
+<p>(longer running tests)</p>
+<p>Release Deployment</p>
+<p>Machine Deployment</p>
+<p>Recommendation</p>
+<ul>
+<li>We recommend using at least the following 3 distinct multibranch pipelines for AS project development:</li>
+<li>Multibranch pipeline 1: Builds the project and runs unit tests</li>
+<li>Multibranch pipeline 2: Runs integration tests</li>
+<li>Multibranch pipeline 3: Handles the release deployment</li>
+<li>Note: the template Jenkinsfile in this DevOps package is a starter implementation that corresponds to one single pipeline for building the project\, running unit tests\, and release deployment. Integration testing is not yet included (this will come in a future update to the DevOps package).</li>
+</ul>
+<p>Build\, Unit Tests</p>
+<p>Integration Testing</p>
+<p>(longer running tests)</p>
+<p>Release Deployment</p>
+<p>Machine Deployment</p>
+<h1 id="br-jenkins-helper-library">B&amp;R-Jenkins Helper Library</h1>
+<p>ATL Jenkins Server</p>
+<p>Readymade Groovy Scripts</p>
+<ul>
+<li>The ATL Jenkins server uses a helper library that has a lot of useful functions for interacting with AS projects</li>
+<li>The library contains Groovy scripts\, which are wrappers around Python scripts and general commands</li>
+<li>You don’t need to edit this library at all\, but you will be using it in your Jenkinsfile</li>
+<li>Public link to the library on GitHub: <a href="https://github.com/br-automation-com/BnR-Jenkins-Helper-Library">https://github.com/br-automation-com/BnR-Jenkins-Helper-Library</a></li>
+<li>The Groovy scripts are located within the “vars” folder on the repo</li>
+<li>The Python scripts that the Groovy scripts utilize are located within the “resources\scripts” folder on the repo</li>
+<li>These scripts have been tested in AS4.7 and above. Prior AS versions may work\, but they are currently untested.</li>
+<li>The available functions are described on the next slides and are provided here as an FYI. To skip forward to the steps for editing your Jenkinsfile\, click <a href="slide26.xml">here</a>.</li>
+</ul>
+<h1 id="version-info-functions">Version Info Functions</h1>
+<p>B&amp;R-Jenkins Helper Library</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Function</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Version</td>
+<td style="text-align: center;">Returns full version number based on tag (e.g. 1.2.3.9004)<br /></td>
+<td style="text-align: center;">workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;">ReleaseVersion</td>
+<td style="text-align: center;">Returns Major.Minor.Bugfix style version number<br /></td>
+<td style="text-align: center;">workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;">MajorVersionNumber</td>
+<td style="text-align: center;">Returns just the Major version number</td>
+<td style="text-align: center;">workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;">MinorVersionNumber</td>
+<td style="text-align: center;">Returns just the Minor version number</td>
+<td style="text-align: center;">workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;">BugFixVersionNumber</td>
+<td style="text-align: center;">Returns just the bug version number</td>
+<td style="text-align: center;">workspace</td>
+</tr>
+</tbody>
+</table>
+<p>The workspace is where Jenkins checks out the project from the repo and runs the pipeline.</p>
+<p>To reference the workspace in the Jenkinsfile\, use the readymade environment variable "${WORKSPACE}"</p>
+<h1 id="git-info-functions">Git Info Functions</h1>
+<p>B&amp;R-Jenkins Helper Library</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Function</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">BranchName</td>
+<td style="text-align: center;">Returns the name of the git branch</td>
+<td style="text-align: center;">workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;">Tag</td>
+<td style="text-align: center;">Returns the last tag in the branch</td>
+<td style="text-align: center;">workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;">IsReleaseCandidate</td>
+<td style="text-align: center;">Returns true if the branch is in the release/* branch</td>
+<td style="text-align: center;">workspace</td>
+</tr>
+<tr>
+<td style="text-align: center;">IsReleaseBranch</td>
+<td style="text-align: center;">Returns true if branch is master or main</td>
+<td style="text-align: center;">workspace</td>
+</tr>
+</tbody>
+</table>
+<p>The workspace is where Jenkins checks out the project from the repo and runs the pipeline.</p>
+<p>To reference the workspace in the Jenkinsfile\, use the readymade environment variable "${WORKSPACE}"</p>
+<h1 id="ar-helper-functions">AR Helper Functions</h1>
+<p>B&amp;R-Jenkins Helper Library</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Function</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">BuildASProject</td>
+<td style="text-align: center;">Builds an Automation Studio Project</td>
+<td style="text-align: center;">project – path within the workspace to the project (the folder containing the .apj file). For example: "$WORKSPACE\TestProject"<br />configuration – configuration name in the AS project<br />max_warnings – the maximum number or build warnings that are allowed in order to consider the build a success. Set this to -1 to accept infinite warnings<br />buildpip – whether to build the PIP or not</td>
+</tr>
+<tr>
+<td style="text-align: center;">BuildARsimStructure</td>
+<td style="text-align: center;">Creates the ARsim structure</td>
+<td style="text-align: center;">project – path within the workspace to the project (the folder containing the .apj file). For example: "$WORKSPACE\TestProject"<br />configuration – configuration name in the AS project</td>
+</tr>
+</tbody>
+</table>
+<h1 id="unit-test-functions">Unit Test Functions</h1>
+<p>B&amp;R-Jenkins Helper Library</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Function</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">RunArUnitTests</td>
+<td style="text-align: center;">Runs unit test configuration in ArSim</td>
+<td style="text-align: center;">tests – the name of the unit tests to run. Use “all” to run all tests<br />configuration – configuration name in the AS project that contains the unit tests<br />project – path within the workspace to the project (the folder containing the .apj file). For example: "$WORKSPACE\TestProject“</td>
+</tr>
+<tr>
+<td style="text-align: center;">ProcessArTestResults</td>
+<td style="text-align: center;">Process test results xml files</td>
+<td style="text-align: center;">N/A</td>
+</tr>
+</tbody>
+</table>
+<h1 id="information-sharing-functions">Information Sharing Functions</h1>
+<p>B&amp;R-Jenkins Helper Library</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Function</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">UploadToGitHub</td>
+<td style="text-align: center;">Uploads build artifacts to a GitHub repository</td>
+<td style="text-align: center;">version – version number of the artifact<br />organization – repo organization name<br />name – repo name<br />file – filename of the artifact to upload</td>
+</tr>
+<tr>
+<td style="text-align: center;">UploadToConfluence</td>
+<td style="text-align: center;">Uploads build artifacts to a Confluence page</td>
+<td style="text-align: center;">projectId – 4-character project identifier<br />pageName – name of the page in Confluence to upload to<br />file – filename of the artifact to upload<br />token – user credentials token for access rights</td>
+</tr>
+<tr>
+<td style="text-align: center;">SendNotifications</td>
+<td style="text-align: center;">Sends an email to team members</td>
+<td style="text-align: center;">buildStatus – the status/result of the most recent build of the pipeline<br />recipients – list of email addresses to send the email to</td>
+</tr>
+</tbody>
+</table>
+<h1 id="getting-started">Getting Started</h1>
+<h1 id="create-a-multibranch-pipeline">Create a Multibranch Pipeline</h1>
+<p>Submit Request</p>
+<p>When you are ready to create a pipeline\, send an email to Brittany and Wes. We will then coordinate a meeting to create your pipeline together and go over a few additional details</p>
+<p>Note that all AS projects that you intend to run through a pipeline must be configured for ARsim in order for the full pipeline to be able to run (particularly\, the automated tests)</p>
+<p>Once the pipeline is in place\, open the template Jenkinsfile in a text editor to begin making your customizations</p>
+<hr />
+<p>Notes for Brittany/Wes: 
+Remember to ask them their AS version. If less than 4.7, we need to test the scripts. If 4.7 or 4.8, we need to install on the build server (it only has 4.9-4.12 right now).
+PIP installation settings – these ok?</p>
+<p>What if you want to run your pipeline for multiple configurations in the project – how would we do this? 
+You would just copy/paste the lines within each Step. See “Stages” section. Help them through this in the first meeting. </p>
+<h1 id="overview-of-the-jenkinsfile-template">Overview of the Jenkinsfile Template</h1>
+<p>DevOps Package</p>
+<p>The provided Jenkinsfile template accomplishes the following tasks:</p>
+<p>Builds the AS project</p>
+<p>Runs the unit tests</p>
+<p>Creates an ARsim structure and PIP</p>
+<p>Uploads the ARsim structure and PIP to GitHub or Confluence\, and sends them to an MS Teams channel via a chat message</p>
+<p>Sends an email with the results of the build</p>
+<h1 id="customizing-the-jenkinsfile">Customizing the Jenkinsfile</h1>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<p>Starting from the template</p>
+<ul>
+<li>The provided template Jenkinsfile is a starting point for your pipeline definition</li>
+<li>There are a few things in this file that must be adjusted for it to run properly for your system</li>
+<li>The following slides identify the purpose of each section in the Jenkinsfile and any changes you must make. There are 6 main sections in the Jenkinsfile pipeline:</li>
+<li><em>Variable Definitions</em>  – Defines global variables</li>
+<li><em>Agent</em>  – Defines where the pipeline will run within the Jenkins environment</li>
+<li><em>Environment</em>  – Defines global environment variables</li>
+<li><em>Options</em>  – Configures options</li>
+<li><em>Stages</em>  – Defines the steps in the pipeline. If a stage fails\, subsequent stages don’t run</li>
+<li>
+<p><em>Post</em>  – Always runs at the end of the pipeline\, even if a stage fails</p>
+</li>
+<li>
+<p><strong>Variables</strong></p>
+</li>
+<li>Agent</li>
+<li><strong>Environment</strong></li>
+<li>Options</li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<h1 id="difference-between-variables-and-environment-variables">Difference between Variables and Environment Variables</h1>
+<p>Additional Context</p>
+<p>Variables</p>
+<p>Defined outside the pipeline\, at the top of the file</p>
+<p>All variables are global</p>
+<p>Environment Variables</p>
+<p>Defined within an environment{} section\, either at the top level of the pipeline (for pipeline global environment variable declarations) or within a stage of the pipeline (for stage local declarations)</p>
+<p>Global environment variables can also be defined in the configuration of Jenkins. In this case\, the variables are accessible to all pipelines</p>
+<p>There are also some built-in environment variables that can be used throughout any Jenkinsfile (analogous to System Variables in mapp View). A full list of predefined and readily available environment variables in Jenkins is available <a href="https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables">here</a>.</p>
+<p>The built-in workspace environment variable (${WORKSPACE}) is not available until the pipeline starts running. Therefore\, if the variable you are creating needs to reference the workspace\, you must declare it as an environment variable. In our template file\, this is why PROJECT_DIR and RELEASE_VERSION are declared as environment variables.</p>
+<ul>
+<li><strong>Variables</strong></li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<h1 id="variables">Variables</h1>
+<p>Customizing the Jenkinsfile</p>
+<p>Starting at the top of the Jenkinsfile\, we will begin by adjusting the global variables. The following table describes each variable. Adjust the values accordingly:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Variable Name</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">TEAMS_CHANNEL_URL</td>
+<td style="text-align: center;">Teams channel webhook URL where messages about the pipeline status will automatically be sent. For more details on how to define this, refer to the “Options” section.</td>
+</tr>
+<tr>
+<td style="text-align: center;">CONFIG_NAME</td>
+<td style="text-align: center;">Name of the configuration in the AS project that you are running through the pipeline</td>
+</tr>
+<tr>
+<td style="text-align: center;">UNIT_TEST_CONFIG_NAME</td>
+<td style="text-align: center;">Name of the unit test configuration in the AS project</td>
+</tr>
+<tr>
+<td style="text-align: center;">REPO_NAME</td>
+<td style="text-align: center;">Name of the GitHub repository. Only required if you plan to upload files to GitHub.</td>
+</tr>
+<tr>
+<td style="text-align: center;">REPO_ORGANIZATION</td>
+<td style="text-align: center;">Name of the GitHub organization. Only required if you plan to upload files to GitHub.</td>
+</tr>
+<tr>
+<td style="text-align: center;">CONFLUENCE_CRED_ID</td>
+<td style="text-align: center;">ID of the Personal Access Token for Confluence. Only required if you plan to upload files to Confluence.<br />For more details, refer to the “Post” section.</td>
+</tr>
+<tr>
+<td style="text-align: center;">CONFLUENCE_PROJECT_ID</td>
+<td style="text-align: center;">Name of the confluence page. Only required if you plan to upload files to Confluence.</td>
+</tr>
+<tr>
+<td style="text-align: center;">CONFLUENCE_PAGE_NAME</td>
+<td style="text-align: center;">Name of the confluence page. Only required if you plan to upload files to Confluence.</td>
+</tr>
+<tr>
+<td style="text-align: center;">EMAIL_LIST</td>
+<td style="text-align: center;">List of email addresses that you want to send the results to, each separated by a semicolon</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Variables</li>
+<li><strong>Agent</strong></li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<h1 id="agent">Agent</h1>
+<p>Customizing the Jenkinsfile</p>
+<ul>
+<li>Edit the “agent” line to identify the docker container your pipeline will run in. This simply depends on the AS version of your project</li>
+<li>Example: AS_412</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal5.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li><strong>Environment</strong></li>
+<li>Options</li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<h1 id="environment">Environment</h1>
+<p>Customizing the Jenkinsfile</p>
+<p>The following table describes each environment variable. Adjust the values accordingly:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Variable Name</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">PROJECT_DIR</td>
+<td style="text-align: center;">Specify the path within the repository to the AS project (the folder containing the .apj file). <br />Use \ for folder separation.<br />Example: PROJECT_DIR = "$WORKSPACE\TestProject“<br />If the project is stored in the root directory, then leave it defined as PROJECT_DIR = "$WORKSPACE"</td>
+</tr>
+<tr>
+<td style="text-align: center;">RELEASE_VERSION</td>
+<td style="text-align: center;">Holds the version number of the code in the repo. No changes required.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li><strong>Options</strong></li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<h1 id="options">Options</h1>
+<p>Customizing the Jenkinsfile</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal6.png" /></p>
+<ul>
+<li>The “options” section sets up a webhook to a Teams channel so that you can automatically send information to that channel. This includes:</li>
+<li>Updates on when the pipeline has started / stopped</li>
+<li>Whether the pipeline succeeded</li>
+<li>The output files of the pipeline (By default in our template\, the output files are the zipped up ARsim structure and PIP)</li>
+<li>
+<p>To establish this connection\, you need to obtain your Teams channel webhook URL (see next slides) and paste it in the value for the TEAMS_CHANNEL_URL variable</p>
+</li>
+<li>
+<p>Variables</p>
+</li>
+<li>Agent</li>
+<li>Environment</li>
+<li><strong>Options</strong></li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<h1 id="obtaining-the-webhook-url">Obtaining the Webhook URL</h1>
+<p>Microsoft Teams Connection</p>
+<p>Navigate to the channel in the Team that you want to establish the connection to</p>
+<p>Click the “…” button</p>
+<p>Click “Connectors”</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal7.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li><strong>Options</strong></li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<p>Microsoft Teams Connection</p>
+<p>Navigate to the channel in the Team that you want to establish the connection to</p>
+<p>Click the “…” button</p>
+<p>Click “Connectors”</p>
+<p>Click “Configure” for “Incoming Webhook”</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal8.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li><strong>Options</strong></li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<p>Microsoft Teams Connection</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal9.png" /></p>
+<p>Navigate to the channel in the Team that you want to establish the connection to</p>
+<p>Click the “…” button</p>
+<p>Click “Connectors”</p>
+<p>Click “Configure” for “Incoming Webhook”</p>
+<p>Give your webhook a name and click “Create”</p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li><strong>Options</strong></li>
+<li>Stages</li>
+<li>Post</li>
+</ul>
+<p>Microsoft Teams Connection</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal10.png" /></p>
+<p>Navigate to the channel in the Team that you want to establish the connection to</p>
+<p>Click the “…” button</p>
+<p>Click “Connectors”</p>
+<p>Click “Configure” for “Incoming Webhook”</p>
+<p>Give your webhook a name and click “Create”</p>
+<p>Afterwards\, the URL you need will be populated in the field at the bottom. Copy this link and paste it at the top of the Jenkinsfile as the value of the TEAMS_CHANNEL_URL variable</p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li><strong>Stages</strong></li>
+<li>
+<p>Post</p>
+</li>
+<li>
+<p>Update Tags</p>
+</li>
+<li>Build AS Project</li>
+<li>Unit Tests</li>
+<li>Deploy</li>
+</ul>
+<h1 id="stages">Stages</h1>
+<p>Customizing the Jenkinsfile</p>
+<ul>
+<li>The next section in the pipeline is the stages.</li>
+<li>This is where you define the actions that the build server will perform.</li>
+<li>This is the “meat and potatoes” of the pipeline.</li>
+<li>There are 4 stages set up in the template Jenkinsfile\, which we will now go through one by one:</li>
+<li>Update Tags</li>
+<li>Build AS Project</li>
+<li>Unit Tests</li>
+<li>
+<p>Deploy</p>
+</li>
+<li>
+<p>Variables</p>
+</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li><strong>Stages</strong></li>
+<li>
+<p>Post</p>
+</li>
+<li>
+<p><strong>Update Tags</strong></p>
+</li>
+<li>Build AS Project</li>
+<li>Unit Tests</li>
+<li>Deploy</li>
+</ul>
+<h1 id="stage-update-tags">Stage: Update Tags</h1>
+<p>Customizing the Jenkinsfile</p>
+<ul>
+<li>This stage force-pulls the tags in the repository</li>
+<li>Note that therefore\, at least one tag must exist in the repo</li>
+<li>This information will be used later to create a version number</li>
+<li>No changes necessary</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal11.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li><strong>Stages</strong></li>
+<li>
+<p>Post</p>
+</li>
+<li>
+<p>Update Tags</p>
+</li>
+<li><strong>Build AS Project</strong></li>
+<li>Unit Tests</li>
+<li>Deploy</li>
+</ul>
+<h1 id="stage-build-as-project">Stage: Build AS Project</h1>
+<p>Customizing the Jenkinsfile</p>
+<p>This stage builds the AS project</p>
+<p>A value of -1 for “max_warnings” means you can have infinite warnings. If you optionally specify a positive value here\, the stage will fail if the number of build warnings exceeds this value.</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal12.png" /></p>
+<hr />
+<p>What if you want to run your pipeline for multiple configurations in the project – how would we do this? 
+You would just copy/paste the lines within each Step. So here, copy/paste the BuildASProject line for the additional config. Set this up with them during the initial meeting</p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li><strong>Stages</strong></li>
+<li>
+<p>Post</p>
+</li>
+<li>
+<p>Update Tags</p>
+</li>
+<li>Build AS Project</li>
+<li><strong>Unit Tests</strong></li>
+<li>Deploy</li>
+</ul>
+<h1 id="stage-unit-tests">Stage: Unit Tests</h1>
+<p>Customizing the Jenkinsfile</p>
+<p>This stage runs the automated unit tests</p>
+<p>If the pipeline gets stuck on a unit test for longer than 15 minutes\, the tests will fail. Optionally adjust this timeout value as desired.</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal13.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li><strong>Stages</strong></li>
+<li>
+<p>Post</p>
+</li>
+<li>
+<p>Update Tags</p>
+</li>
+<li>Build AS Project</li>
+<li>Unit Tests</li>
+<li><strong>Deploy</strong></li>
+</ul>
+<h1 id="stage-deploy">Stage: Deploy</h1>
+<p>Customizing the Jenkinsfile</p>
+<p>The template separates the deploy stage between release branches and feature/develop branches</p>
+<p>Therefore\, you can trigger different actions depending on what branch you pushed to</p>
+<p>By default\, both stages create the ARsim structure and Project Installation Package</p>
+<p>If you want to perform another action in either stage\, add it accordingly</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal14.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li>Success</li>
+<li>Unstable</li>
+</ul>
+<h1 id="post">Post</h1>
+<p>Customizing the Jenkinsfile</p>
+<ul>
+<li>The code within Post will always run\, even if a stage in the pipeline fails</li>
+<li>Within Post\, there are 3 subsections:</li>
+<li><strong>Always</strong>  – runs in every single post processing</li>
+<li><strong>Success</strong>  – runs if all unit tests pass</li>
+<li>
+<p><strong>Unstable</strong>  – runs if any of the unit tests fail. This is classified as “unstable” rather than a failure because the pipeline itself completed\, but the tests did not pass.</p>
+</li>
+<li>
+<p>Variables</p>
+</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p><strong>Always</strong></p>
+</li>
+<li>Success</li>
+<li>Unstable</li>
+</ul>
+<h1 id="post-always">Post: Always</h1>
+<p>Customizing the Jenkinsfile</p>
+<ul>
+<li>The “Always” post script converts the B&amp;R Unit test results into a data format that Jenkins can understand what passed/failed</li>
+<li>Archives the ARsim structure and PIP so that they can be used in subsequent pipelines or uploaded to GitHub/Confluence/Teams</li>
+<li>Sends an email with the build status to the EMAIL_LIST recipients</li>
+<li>
+<p>The PIP that gets automatically generated uses the following installation settings:</p>
+<ul>
+<li>Consistent installation</li>
+<li>Allow updates without data loss</li>
+<li>Keep PV values</li>
+<li>Ignore version</li>
+<li>Always install</li>
+</ul>
+</li>
+<li>
+<p>Variables</p>
+</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p><strong>Always</strong></p>
+</li>
+<li>Success</li>
+<li>Unstable</li>
+</ul>
+<h1 id="example-of-a-successful-build-email-notification">Example of a Successful Build Email Notification</h1>
+<p>All Tests Passed</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal15.png" /></p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal16.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p><strong>Always</strong></p>
+</li>
+<li>Success</li>
+<li>Unstable</li>
+</ul>
+<h1 id="example-of-an-unstable-build-email-notification">Example of an Unstable Build Email Notification</h1>
+<p>Some Tests Failed</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal17.png" /></p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal18.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li><strong>Success</strong></li>
+<li><strong>Unstable</strong></li>
+</ul>
+<h1 id="post-success-unstable">Post: Success, Unstable</h1>
+<p>Customizing the Jenkinsfile</p>
+<ul>
+<li>Both the “Success” and “Unstable” post scripts do the following:<ul>
+<li>Upload the artifacts to your destination of choice (GitHub\, Confluence\, or both)</li>
+<li>Send a message to the Teams channel with the status and artifact download links</li>
+</ul>
+</li>
+<li>
+<p>The only differences between these post scripts are:</p>
+<ul>
+<li>The color scheme (green for success\, yellow for unstable)</li>
+<li>The text that gets used for the Teams message (“Build Success” vs “Build Unstable”).</li>
+</ul>
+</li>
+<li>
+<p>Variables</p>
+</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li><strong>Success</strong></li>
+<li><strong>Unstable</strong></li>
+</ul>
+<h1 id="example-of-ms-teams-messages">Example of MS Teams Messages</h1>
+<p>Success vs Unstable</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal19.png" /></p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal20.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li><strong>Success</strong></li>
+<li><strong>Unstable</strong></li>
+</ul>
+<h1 id="post-success-unstable_1">Post: Success, Unstable</h1>
+<p>Customizing the Jenkinsfile</p>
+<ul>
+<li>Required steps:</li>
+<li>
+<p>Comment/uncomment the upload lines according to your selected destination (GitHub/Confluence)</p>
+<ul>
+<li>If GitHub:</li>
+<li>Edit the REPO_NAME and REPO_ORGANIZATION variables at the top of the Jenkinsfile accordingly</li>
+</ul>
+</li>
+<li>
+<p>If Confluence:</p>
+</li>
+<li>Create a Personal Access Token (PAT) in Confluence. Steps are provided <a href="https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html">here</a> in section “Creating PATs in the application”</li>
+<li>Add the PAT to the Jenkins project (detailed steps on subsequent slides)</li>
+<li>Edit the CONFLUENCE_CRED_ID variable value at the top of the Jenkinsfile to equal the ID of your PAT from step 2.</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal21.png" /></p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal22.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li><strong>Success</strong></li>
+<li><strong>Unstable</strong></li>
+</ul>
+<h1 id="add-pat-to-jenkins-project">Add PAT to Jenkins Project</h1>
+<p>For Uploading Files to Confluence</p>
+<ul>
+<li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
+<li>The output of the PAT in Confluence is a long text string. In the Jenkins project\, go to Configure.</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal23.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li><strong>Success</strong></li>
+<li><strong>Unstable</strong></li>
+</ul>
+<p>For Uploading Files to Confluence</p>
+<ul>
+<li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
+<li>Scroll down to the “Properties” section at the bottom. Beneath the “Registry Credentials” dropdown\, click the “Add” button.</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal24.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li><strong>Success</strong></li>
+<li><strong>Unstable</strong></li>
+</ul>
+<p>For Uploading Files to Confluence</p>
+<ul>
+<li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
+<li>Select your Jenkins project name from the dropdown.</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal25.png" /></p>
+<ul>
+<li>Variables</li>
+<li>Agent</li>
+<li>Environment</li>
+<li>Options</li>
+<li>Stages</li>
+<li>
+<p><strong>Post</strong></p>
+</li>
+<li>
+<p>Always</p>
+</li>
+<li><strong>Success</strong></li>
+<li><strong>Unstable</strong></li>
+</ul>
+<p>For Uploading Files to Confluence</p>
+<ul>
+<li>To add a Personal Access Token (PAT) from Confluence to a Jenkins project:</li>
+<li>Change the “Kind” to “secret text”. Paste your long PAT string in the “Secret” field. Give the credentials a meaningful ID. Remember the ID (this is what you need to specify in the Jenkinsfile). Click “Add” at the bottom of the window to add your Confluence PAT to your Jenkins project.</li>
+</ul>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal26.png" /></p>
+<h1 id="integration-with-bitbucket">Integration with Bitbucket</h1>
+<h1 id="integrate-jenkins-with-bitbucket">Integrate Jenkins with Bitbucket</h1>
+<p>How-to</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal27.png" /></p>
+<p>From the Bitbucket project\, click on your user icon and select “Manage account”</p>
+<p>Select “HTTP access token” in the menu on the left</p>
+<p>Click “Create token”</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal28.png" /></p>
+<p>How-to</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal29.png" /></p>
+<p>Add a token name</p>
+<p>Set the Permissions to “Repository read”</p>
+<p>Click “Create”</p>
+<p>How-to</p>
+<p>Make sure to copy the generated token as you will not be able view this again.</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal30.png" /></p>
+<p>How-to</p>
+<p>Create new project in Jenkins</p>
+<p>Enter name of project</p>
+<p>Select multibranch pipeline</p>
+<p>How-to</p>
+<p>Add Credential</p>
+<p>Select project name</p>
+<p>Add source</p>
+<p>Select Bitbucket</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal31.png" /></p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal32.png" /></p>
+<p>How-to</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal33.png" /></p>
+<p>Change “Kind” to “Username with password”</p>
+<p>Paste HTTP access token created from Bitbucket</p>
+<p>Give unique ID</p>
+<p>How-to</p>
+<p>Select new Credential</p>
+<p>Set the “Owner” to the Bitbucket project key (4 letter identifier)</p>
+<p>Once Owner is entered\, the Repository Name should show up in list</p>
+<p>How-to</p>
+<p>Then Add “Advanced clone behaviors”</p>
+<p>And ensure that “Fetch tags” is checked</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal34.png" /></p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal35.png" /></p>
+<p>How-to</p>
+<p>After saving\, the repositories will be scanned</p>
+<p><img alt="" src="../img/Automation%20and%20Build%20Server%20-%20Internal36.png" /></p>
+<h1 id="measurables">Measurables</h1>
+<h1 id="automation-and-build-server">Automation and Build Server</h1>
+<p>Measurables</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Measurable</th>
+<th style="text-align: center;">Purely B&amp;R</th>
+<th style="text-align: center;">Mix, B&amp;R Primary</th>
+<th style="text-align: center;">Mix, Customer Primary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">A Jenkins pipeline is in place, which at the very least runs your unit tests</td>
+<td style="text-align: center;">Required</td>
+<td style="text-align: center;">Required</td>
+<td style="text-align: center;">Maybe</td>
+</tr>
+</tbody>
+</table>
+<p>Materials prepared by Brittany Langston &amp; Wesley Buchanan</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
