@@ -13,4 +13,6 @@ nav:
   - Automation and Build Server:
     - 'First section': 'AutomationAndBuildServer.md'
 
-    
+header_pages:
+ - DevOpsPackageIntro.md
+ - AutomationAndBuildServer.md
