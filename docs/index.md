@@ -13,7 +13,7 @@ Have you or your engineers ever made comments like this?
 
 Well, one way to address these kinds of problems is a set of practices called  [DevOps](https://www.atlassian.com/devops/what-is-devops).
 
-<img src="img%5CDevOps%20Package%20Overview0.png" width="500">
+![](img%5CDevOps%20Package%20Overview0.png)
 
 ## What is DevOps?
 
@@ -31,7 +31,7 @@ DevOps involves strategies like increasing the visibility of tasks and metrics, 
 
 Many people agree that the DevOps mindset is a favorable way to work, but integrating new practices  requires bandwidth that most of us don’t have. As a result, inefficient workflows remain in place.
 
-<img src="img%5CDevOps%20Package%20Overview5.png" width="300" >
+![](img%5CDevOps%20Package%20Overview5.png)
 
 
 ## B&R DevOps Package
@@ -39,7 +39,7 @@ Many people agree that the DevOps mindset is a favorable way to work, but integr
 To address this, B&R has put together this DevOps package. The mission and purpose of this package is: <br><br>
 __To significantly reduce the barriers to entry of DevOps strategies into the day-to-day workflow of Automation Studio project development, in order to increase the efficiency, quality, and maintainability of the resulting applications.__
 <br> <br>
-<img src="img%5CDevOps%20Package%20Overview6.png" width="125" >
+![](img%5CDevOps%20Package%20Overview6.png)
 
 ## Value Proposition
 
@@ -79,10 +79,10 @@ Lastly, everything within the DevOps package is  _free_ to use!
 
 To get started, take a look through the package contents on the left and dive in to your topic of interest. The documentation will guide you through the topic and explain all template files as they come up.
 <br><br>
-<img src="img%5CDevOps%20Package%20Overview11.png" width="300" >
+![](img%5CDevOps%20Package%20Overview11.png)
 
 <span style="font-size:10px">
-    We reserve the right to change the content of this presentation without prior notice. The information contained herein is believed to be accurate as of the date of publication, however, B&R makes no warranty, expressed or implied, with regards to the products or the documentation contained within this document. B&R shall not be liable in the event if incidental or consequential damages in connection with or arising from the furnishing, performance or use of these products. The software names\, hardware names and trademarks used in this document are registered by the respective companies.
+    We reserve the right to change the content of any of this material without prior notice. The information contained herein is believed to be accurate as of the date of publication, however, B&R makes no warranty, expressed or implied, with regards to the products or the documentation contained within this document. B&R shall not be liable in the event if incidental or consequential damages in connection with or arising from the furnishing, performance or use of these products. The software names\, hardware names and trademarks used in this document are registered by the respective companies.
 	<br>Copyright © B&R – Subject to change without notice
 </span>
 
